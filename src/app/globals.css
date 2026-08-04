@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+:root {
+  --background: #FAF7F1;
+  --foreground: #211E1A;
+
+  /* Palet Kalyana Tenda */
+  --onyx: #121110;
+  --onyx-2: #1B1917;
+  --champagne: #C9A567;
+  --champagne-light: #E4CFA0;
+  --ivory: #F3EEE4;
+  --page: #FAF7F1;
+  --page-2: #F1ECE0;
+  --green: #22362B;
+  --green-light: #2E4A3A;
+  --ink-soft: #5C574C;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-onyx: var(--onyx);
+  --color-onyx-2: var(--onyx-2);
+  --color-champagne: var(--champagne);
+  --color-champagne-light: var(--champagne-light);
+  --color-ivory: var(--ivory);
+  --color-page: var(--page);
+  --color-page-2: var(--page-2);
+  --color-green: var(--green);
+  --color-green-light: var(--green-light);
+  --color-ink-soft: var(--ink-soft);
+  --font-serif: var(--font-cormorant);
+  --font-sans: var(--font-jost);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-jost), sans-serif;
+  font-weight: 300;
+}
