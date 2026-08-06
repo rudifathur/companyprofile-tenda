@@ -10,9 +10,9 @@ export default function AboutPage() {
         <span className="text-[11px] uppercase tracking-[0.2em] text-green">
           Tentang Kami
         </span>
-        <h1 className="font-serif text-3xl mt-2 mb-6">Kalyana Tenda</h1>
+        <h1 className="font-serif text-3xl mt-2 mb-6">Tenda Trikora</h1>
         <p className="text-ink-soft leading-relaxed mb-4">
-          Kalyana Tenda adalah produsen dan penyedia jasa sewa tenda untuk
+          Tenda Trikora adalah produsen dan penyedia jasa sewa tenda untuk
           berbagai kebutuhan — mulai dari pernikahan dan kondangan, event
           organizer, konser, hingga kebutuhan tenda darurat dan kemanusiaan.
         </p>

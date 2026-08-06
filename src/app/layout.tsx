@@ -16,7 +16,7 @@ const jost = Jost({
 });
 
 export const metadata: Metadata = {
-  title: "Kalyana Tenda — Produsen Tenda Terlengkap",
+  title: "Tenda Trikora — Produsen Tenda Terlengkap",
   description:
     "Sewa dan produksi tenda untuk pernikahan, kondangan, hingga event & konser berskala besar.",
 };

@@ -20,7 +20,7 @@ export default async function SiteHeader() {
             K
           </div>
           <span className="font-serif text-lg text-ivory tracking-wide">
-            Kalyana Tenda
+            Tenda Trikora
           </span>
         </Link>
 
