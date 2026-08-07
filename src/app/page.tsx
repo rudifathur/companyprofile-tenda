@@ -10,6 +10,7 @@ import {
   FEATURED_PRODUCTS_QUERY,
   CATEGORIES_WITH_PRODUCTS_QUERY,
   LATEST_PRODUCTS_QUERY,
+  BANNERS_QUERY,
 } from "@/sanity/lib/queries";
 import type { Image as SanityImage } from "sanity";
 
@@ -28,27 +29,36 @@ type CategoryWithProducts = {
   products: Product[];
 };
 
+type Banner = {
+  _id: string;
+  title?: string;
+  image: SanityImage;
+  linkUrl?: string;
+};
+
 export const revalidate = 60;
 
 async function getData() {
   try {
-    const [featured, categoriesWithProducts, latest] = await Promise.all([
+    const [featured, categoriesWithProducts, latest, banners] = await Promise.all([
       client.fetch<Product[]>(FEATURED_PRODUCTS_QUERY),
       client.fetch<CategoryWithProducts[]>(CATEGORIES_WITH_PRODUCTS_QUERY),
       client.fetch<Product[]>(LATEST_PRODUCTS_QUERY),
+      client.fetch<Banner[]>(BANNERS_QUERY),
     ]);
-    return { featured, categoriesWithProducts, latest };
+    return { featured, categoriesWithProducts, latest, banners };
   } catch {
     return {
       featured: [] as Product[],
       categoriesWithProducts: [] as CategoryWithProducts[],
       latest: [] as Product[],
+      banners: [] as Banner[],
     };
   }
 }
 
 export default async function Home() {
-  const { featured, categoriesWithProducts, latest } = await getData();
+  const { featured, categoriesWithProducts, latest, banners } = await getData();
   const hasAnyContent =
     featured.length > 0 || categoriesWithProducts.length > 0 || latest.length > 0;
 
@@ -70,17 +80,7 @@ export default async function Home() {
         </p>
       </section>
 
-      <HeroCarousel
-        slides={categoriesWithProducts
-          .filter((c) => c.coverImage)
-          .slice(0, 5)
-          .map((c) => ({
-            _id: c._id,
-            title: c.title,
-            slug: c.slug,
-            coverImage: c.coverImage,
-          }))}
-      />
+      <HeroCarousel slides={banners} />
 
       <main className="max-w-7xl mx-auto px-6 py-12">
         {!hasAnyContent && (

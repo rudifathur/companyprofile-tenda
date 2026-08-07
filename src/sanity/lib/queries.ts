@@ -1,5 +1,11 @@
 import { groq } from "next-sanity";
 
+export const BANNERS_QUERY = groq`
+  *[_type == "banner" && isActive == true] | order(order asc) {
+    _id, title, image, linkUrl
+  }
+`;
+
 export const ALL_CATEGORIES_QUERY = groq`
   *[_type == "category"] | order(order asc) {
     _id, title, "slug": slug.current, description, coverImage
