@@ -19,7 +19,7 @@ export default async function SiteHeader() {
           <div className="w-8 h-8 rounded-full border border-champagne flex items-center justify-center text-champagne font-serif text-sm">
             K
           </div>
-          <span className="font-serif text-lg text-ivory tracking-wide">
+          <span className="text-lg text-ivory tracking-wide">
             Tenda Trikora
           </span>
         </Link>

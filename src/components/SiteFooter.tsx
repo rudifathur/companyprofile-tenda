@@ -5,7 +5,7 @@ export default function SiteFooter() {
     <footer className="bg-onyx text-ivory/60 mt-auto border-t border-champagne/15">
       <div className="max-w-7xl mx-auto px-6 py-14 grid grid-cols-1 md:grid-cols-3 gap-10 text-sm">
         <div>
-          <span className="font-serif text-lg text-ivory">Tenda Trikora</span>
+          <span className="text-lg text-ivory">Tenda Trikora</span>
           <p className="mt-3 text-ivory/50 leading-relaxed">
             Jl. Contoh Alamat No. 99, Bogor, Jawa Barat, Indonesia
           </p>
