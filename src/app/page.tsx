@@ -93,7 +93,7 @@ export default async function Home() {
         {/* PRODUK UNGGULAN */}
         {featured.length > 0 && (
           <section className="mb-14">
-            <h2 className="font-serif text-2xl mb-5 pb-3 border-b border-page-2">
+            <h2 className="text-2xl mb-5 pb-3 border-b border-page-2">
               Produk Unggulan
             </h2>
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-x-5 gap-y-8">
@@ -110,7 +110,7 @@ export default async function Home() {
           .map((cat) => (
             <section key={cat._id} className="mb-14">
               <div className="flex items-center justify-between pb-3 border-b border-page-2 mb-5">
-                <h2 className="font-serif text-2xl">{cat.title}</h2>
+                <h2 className="text-2xl">{cat.title}</h2>
                 <Link
                   href={`/kategori/${cat.slug}`}
                   className="text-xs text-green hover:text-champagne uppercase tracking-wide whitespace-nowrap"
@@ -129,7 +129,7 @@ export default async function Home() {
         {/* PRODUK TERBARU */}
         {latest.length > 0 && (
           <section>
-            <h2 className="font-serif text-2xl mb-5 pb-3 border-b border-page-2">
+            <h2 className="text-2xl mb-5 pb-3 border-b border-page-2">
               Produk Terbaru
             </h2>
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-x-5 gap-y-8">
