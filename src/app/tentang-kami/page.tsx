@@ -1,6 +1,7 @@
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
+import BackToTop from "@/components/BackToTop";
 
 export default function AboutPage() {
   return (
@@ -32,6 +33,7 @@ export default function AboutPage() {
         </div>
       </main>
       <WhatsAppFloat />
+      <BackToTop />
       <SiteFooter />
     </>
   );

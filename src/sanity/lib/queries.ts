@@ -34,7 +34,7 @@ export const LATEST_PRODUCTS_QUERY = groq`
 
 export const CATEGORIES_WITH_PRODUCTS_QUERY = groq`
   *[_type == "category"] | order(order asc) {
-    _id, title, "slug": slug.current,
+    _id, title, "slug": slug.current, coverImage,
     "products": *[_type == "product" && references(^._id)] | order(_createdAt desc) [0...4] {
       _id, name, "slug": slug.current, images
     }

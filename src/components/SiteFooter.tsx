@@ -16,7 +16,7 @@ export default function SiteFooter() {
             <a href="https://wa.me/6280000000000" target="_blank" className="block hover:text-champagne">
               WhatsApp: 0800-0000-000
             </a>
-            <span className="block">Email: halo@tendatrikora.com</span>
+            <span className="block">Email: halo@tendatrikora.id</span>
           </div>
         </div>
         <div>

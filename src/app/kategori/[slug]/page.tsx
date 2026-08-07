@@ -3,6 +3,7 @@ import { client } from "@/sanity/lib/client";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
+import BackToTop from "@/components/BackToTop";
 import ProductCard from "@/components/ProductCard";
 import { PRODUCTS_BY_CATEGORY_QUERY } from "@/sanity/lib/queries";
 import { groq } from "next-sanity";
@@ -83,6 +84,7 @@ export default async function CategoryPage({
       </main>
 
       <WhatsAppFloat />
+      <BackToTop />
       <SiteFooter />
     </>
   );

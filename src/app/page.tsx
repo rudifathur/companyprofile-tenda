@@ -3,6 +3,8 @@ import { client } from "@/sanity/lib/client";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
+import BackToTop from "@/components/BackToTop";
+import HeroCarousel from "@/components/HeroCarousel";
 import ProductCard from "@/components/ProductCard";
 import {
   FEATURED_PRODUCTS_QUERY,
@@ -22,6 +24,7 @@ type CategoryWithProducts = {
   _id: string;
   title: string;
   slug: string;
+  coverImage?: SanityImage;
   products: Product[];
 };
 
@@ -66,6 +69,18 @@ export default async function Home() {
           kemanusiaan — siap kirim ke seluruh Indonesia.
         </p>
       </section>
+
+      <HeroCarousel
+        slides={categoriesWithProducts
+          .filter((c) => c.coverImage)
+          .slice(0, 5)
+          .map((c) => ({
+            _id: c._id,
+            title: c.title,
+            slug: c.slug,
+            coverImage: c.coverImage,
+          }))}
+      />
 
       <main className="max-w-7xl mx-auto px-6 py-12">
         {!hasAnyContent && (
@@ -127,6 +142,7 @@ export default async function Home() {
       </main>
 
       <WhatsAppFloat />
+      <BackToTop />
       <SiteFooter />
     </>
   );

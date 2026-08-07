@@ -4,6 +4,7 @@ import { urlForImage } from "@/sanity/lib/image";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
+import BackToTop from "@/components/BackToTop";
 import { ALL_CATEGORIES_QUERY } from "@/sanity/lib/queries";
 import type { Image as SanityImage } from "sanity";
 
@@ -77,6 +78,7 @@ export default async function AllCategoriesPage() {
       </main>
 
       <WhatsAppFloat />
+      <BackToTop />
       <SiteFooter />
     </>
   );

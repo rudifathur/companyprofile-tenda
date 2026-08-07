@@ -5,6 +5,7 @@ import { urlForImage } from "@/sanity/lib/image";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
+import BackToTop from "@/components/BackToTop";
 import { PRODUCT_BY_SLUG_QUERY } from "@/sanity/lib/queries";
 import { PortableText } from "@portabletext/react";
 import type { PortableTextBlock } from "@portabletext/types";
@@ -147,6 +148,7 @@ export default async function ProductPage({
       </main>
 
       <WhatsAppFloat />
+      <BackToTop />
       <SiteFooter />
     </>
   );
