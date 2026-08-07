@@ -73,7 +73,7 @@ export default async function Home() {
         <span className="text-[11px] uppercase tracking-[0.28em] text-champagne">
           Produsen tenda terlengkap
         </span>
-        <h1 className="font-serif text-3xl md:text-4xl font-light mt-4 mb-3 max-w-2xl mx-auto leading-tight">
+        <h1 className="text-3xl md:text-4xl font-light mt-4 mb-3 max-w-2xl mx-auto leading-tight">
           Menaungi setiap momen, dari kondangan hingga panggung besar
         </h1>
         <p className="text-ivory/60 max-w-md mx-auto text-sm">
