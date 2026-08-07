@@ -1,11 +1,11 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { client } from "@/sanity/lib/client";
-import { urlForImage } from "@/sanity/lib/image";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import BackToTop from "@/components/BackToTop";
+import ProductGallery from "@/components/ProductGallery";
 import { PRODUCT_BY_SLUG_QUERY } from "@/sanity/lib/queries";
 import { PortableText } from "@portabletext/react";
 import type { PortableTextBlock } from "@portabletext/types";
@@ -70,34 +70,7 @@ export default async function ProductPage({
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           {/* GALERI */}
-          <div>
-            <div className="aspect-square bg-page-2 overflow-hidden mb-3">
-              {product.images?.[0] ? (
-                <img
-                  src={urlForImage(product.images[0]).width(700).height(700).url()}
-                  alt={product.name}
-                  className="w-full h-full object-cover"
-                />
-              ) : (
-                <div className="w-full h-full flex items-center justify-center text-ink-soft text-sm">
-                  Belum ada foto
-                </div>
-              )}
-            </div>
-            {product.images && product.images.length > 1 && (
-              <div className="grid grid-cols-4 gap-2">
-                {product.images.slice(1, 5).map((img, i) => (
-                  <div key={i} className="aspect-square bg-page-2 overflow-hidden">
-                    <img
-                      src={urlForImage(img).width(200).height(200).url()}
-                      alt={`${product.name} ${i + 2}`}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
+          <ProductGallery images={product.images || []} productName={product.name} />
 
           {/* INFO */}
           <div>
