@@ -1,18 +1,17 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Jost } from "next/font/google";
+import { Anton, Albert_Sans } from "next/font/google";
 import "./globals.css";
 
-const cormorant = Cormorant_Garamond({
-  variable: "--font-cormorant",
+const anton = Anton({
+  variable: "--font-anton",
   subsets: ["latin"],
-  weight: ["300", "400", "500"],
-  style: ["normal", "italic"],
+  weight: ["400"],
 });
 
-const jost = Jost({
-  variable: "--font-jost",
+const albertSans = Albert_Sans({
+  variable: "--font-albert-sans",
   subsets: ["latin"],
-  weight: ["300", "400", "500"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -29,7 +28,7 @@ export default function RootLayout({
   return (
     <html
       lang="id"
-      className={`${cormorant.variable} ${jost.variable} h-full antialiased`}
+      className={`${anton.variable} ${albertSans.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-page text-[#211E1A]">
         {children}
