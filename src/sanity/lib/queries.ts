@@ -53,3 +53,27 @@ export const PRODUCT_BY_SLUG_QUERY = groq`
     "category": category->{title, "slug": slug.current}
   }
 `;
+
+export const PORTFOLIO_QUERY = groq`
+  *[_type == "portfolio"] | order(order asc) {
+    _id, caption, image
+  }
+`;
+
+export const ACTIVE_PROMOS_QUERY = groq`
+  *[_type == "promo" && isActive == true] | order(_createdAt desc) {
+    _id, title, image, description, validUntil
+  }
+`;
+
+export const BLOG_LIST_QUERY = groq`
+  *[_type == "blogPost"] | order(publishedAt desc) {
+    _id, title, "slug": slug.current, coverImage, excerpt, publishedAt
+  }
+`;
+
+export const BLOG_POST_QUERY = groq`
+  *[_type == "blogPost" && slug.current == $slug][0] {
+    _id, title, coverImage, excerpt, body, publishedAt
+  }
+`;

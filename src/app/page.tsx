@@ -5,6 +5,8 @@ import SiteFooter from "@/components/SiteFooter";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import BackToTop from "@/components/BackToTop";
 import HeroCarousel from "@/components/HeroCarousel";
+import CategoryIcons from "@/components/CategoryIcons";
+import TrustBadges from "@/components/TrustBadges";
 import ProductCard from "@/components/ProductCard";
 import {
   FEATURED_PRODUCTS_QUERY,
@@ -66,14 +68,12 @@ export default async function Home() {
     <>
       <SiteHeader />
 
-      <HeroCarousel slides={banners} />
-
       {/* HERO — ringkas, bukan full-page seperti versi company profile */}
       <section className="bg-onyx text-ivory text-center px-6 py-16 md:py-20">
         <span className="text-[11px] uppercase tracking-[0.28em] text-champagne">
           Produsen tenda terlengkap
         </span>
-        <h1 className="text-3xl md:text-4xl font-light mt-4 mb-3 max-w-2xl mx-auto leading-tight">
+        <h1 className="font-serif text-3xl md:text-4xl font-light mt-4 mb-3 max-w-2xl mx-auto leading-tight">
           Menaungi setiap momen, dari kondangan hingga panggung besar
         </h1>
         <p className="text-ivory/60 max-w-md mx-auto text-sm">
@@ -81,6 +81,19 @@ export default async function Home() {
           kemanusiaan — siap kirim ke seluruh Indonesia.
         </p>
       </section>
+
+      <HeroCarousel slides={banners} />
+
+      <CategoryIcons
+        categories={categoriesWithProducts.map((c) => ({
+          _id: c._id,
+          title: c.title,
+          slug: c.slug,
+          coverImage: c.coverImage,
+        }))}
+      />
+
+      <TrustBadges />
 
       <main className="max-w-7xl mx-auto px-6 py-12">
         {!hasAnyContent && (
@@ -93,7 +106,7 @@ export default async function Home() {
         {/* PRODUK UNGGULAN */}
         {featured.length > 0 && (
           <section className="mb-14">
-            <h2 className="text-2xl mb-5 pb-3 border-b border-page-2">
+            <h2 className="font-serif text-2xl mb-5 pb-3 border-b border-page-2">
               Produk Unggulan
             </h2>
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-x-5 gap-y-8">
@@ -110,7 +123,7 @@ export default async function Home() {
           .map((cat) => (
             <section key={cat._id} className="mb-14">
               <div className="flex items-center justify-between pb-3 border-b border-page-2 mb-5">
-                <h2 className="text-2xl">{cat.title}</h2>
+                <h2 className="font-serif text-2xl">{cat.title}</h2>
                 <Link
                   href={`/kategori/${cat.slug}`}
                   className="text-xs text-green hover:text-champagne uppercase tracking-wide whitespace-nowrap"
@@ -129,7 +142,7 @@ export default async function Home() {
         {/* PRODUK TERBARU */}
         {latest.length > 0 && (
           <section>
-            <h2 className="text-2xl mb-5 pb-3 border-b border-page-2">
+            <h2 className="font-serif text-2xl mb-5 pb-3 border-b border-page-2">
               Produk Terbaru
             </h2>
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-x-5 gap-y-8">

@@ -2,7 +2,10 @@ import { type SchemaTypeDefinition } from "sanity";
 import { category } from "./category";
 import { product } from "./product";
 import { banner } from "./banner";
+import { portfolio } from "./portfolio";
+import { promo } from "./promo";
+import { blogPost } from "./blogPost";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [banner, category, product],
+  types: [banner, category, product, portfolio, promo, blogPost],
 };
