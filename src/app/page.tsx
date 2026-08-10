@@ -68,6 +68,8 @@ export default async function Home() {
     <>
       <SiteHeader />
 
+      <HeroCarousel slides={banners} />
+
       {/* HERO — ringkas, bukan full-page seperti versi company profile */}
       <section className="bg-onyx text-ivory text-center px-6 py-16 md:py-20">
         <span className="text-[11px] uppercase tracking-[0.28em] text-champagne">
@@ -81,8 +83,6 @@ export default async function Home() {
           kemanusiaan — siap kirim ke seluruh Indonesia.
         </p>
       </section>
-
-      <HeroCarousel slides={banners} />
 
       <CategoryIcons
         categories={categoriesWithProducts.map((c) => ({
