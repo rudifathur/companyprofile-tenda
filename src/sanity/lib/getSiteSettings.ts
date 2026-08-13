@@ -9,6 +9,9 @@ export type SiteSettings = {
   whatsappNumber?: string;
   email?: string;
   address?: string;
+  instagramUrl?: string;
+  tiktokUrl?: string;
+  facebookUrl?: string;
 };
 
 const DEFAULT_WA = "6280000000000";

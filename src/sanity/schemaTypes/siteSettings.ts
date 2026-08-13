@@ -41,6 +41,24 @@ export const siteSettings = defineType({
       type: "text",
       rows: 2,
     }),
+    defineField({
+      name: "instagramUrl",
+      title: "Link Instagram",
+      type: "url",
+      description: "Contoh: https://instagram.com/tendatrikora",
+    }),
+    defineField({
+      name: "tiktokUrl",
+      title: "Link TikTok",
+      type: "url",
+      description: "Contoh: https://tiktok.com/@tendatrikora",
+    }),
+    defineField({
+      name: "facebookUrl",
+      title: "Link Facebook",
+      type: "url",
+      description: "Contoh: https://facebook.com/tendatrikora",
+    }),
   ],
   preview: {
     select: { title: "siteName", media: "logo" },
