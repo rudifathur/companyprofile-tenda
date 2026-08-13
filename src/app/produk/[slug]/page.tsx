@@ -6,6 +6,7 @@ import SiteFooter from "@/components/SiteFooter";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import BackToTop from "@/components/BackToTop";
 import ProductGallery from "@/components/ProductGallery";
+import { getSiteSettings, waNumber } from "@/sanity/lib/getSiteSettings";
 import { PRODUCT_BY_SLUG_QUERY } from "@/sanity/lib/queries";
 import { PortableText } from "@portabletext/react";
 import type { PortableTextBlock } from "@portabletext/types";
@@ -39,6 +40,8 @@ export default async function ProductPage({
 }) {
   const { slug } = await params;
   const product = await getProduct(slug);
+  const settings = await getSiteSettings();
+  const wa = waNumber(settings);
 
   if (!product) {
     notFound();
@@ -104,7 +107,7 @@ export default async function ProductPage({
             )}
 
             <a
-              href={`https://wa.me/6280000000000?text=${waText}`}
+              href={`https://wa.me/${wa}?text=${waText}`}
               target="_blank"
               className="inline-flex items-center gap-2 bg-[#25D366] text-white text-sm font-medium px-6 py-3.5 hover:opacity-90 transition"
             >

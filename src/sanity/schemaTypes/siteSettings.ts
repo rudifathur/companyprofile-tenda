@@ -9,7 +9,6 @@ export const siteSettings = defineType({
       name: "siteName",
       title: "Nama Brand",
       type: "string",
-      description: "Muncul di sebelah logo dan di judul tab browser",
       initialValue: "Tenda Trikora",
     }),
     defineField({
@@ -22,7 +21,25 @@ export const siteSettings = defineType({
       name: "favicon",
       title: "Favicon (ikon kecil di tab browser)",
       type: "image",
-      description: "Disarankan gambar persegi (contoh: 512x512px), akan otomatis di-crop persegi",
+      description: "Disarankan gambar persegi (contoh: 512x512px)",
+    }),
+    defineField({
+      name: "whatsappNumber",
+      title: "Nomor WhatsApp",
+      type: "string",
+      description: "Format internasional tanpa tanda + atau spasi, contoh: 6281234567890",
+      validation: (r) => r.regex(/^62\d{8,13}$/, { name: "format nomor", invert: false }).warning("Sebaiknya diawali 62, tanpa spasi/simbol"),
+    }),
+    defineField({
+      name: "email",
+      title: "Email",
+      type: "string",
+    }),
+    defineField({
+      name: "address",
+      title: "Alamat",
+      type: "text",
+      rows: 2,
     }),
   ],
   preview: {

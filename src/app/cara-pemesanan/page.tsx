@@ -2,6 +2,7 @@ import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import BackToTop from "@/components/BackToTop";
+import { getSiteSettings, waNumber } from "@/sanity/lib/getSiteSettings";
 
 const STEPS = [
   { n: "01", title: "Konsultasi", desc: "Hubungi kami via WhatsApp, ceritakan jenis acara, jumlah tamu, lokasi, dan tanggal acara Anda." },
@@ -10,7 +11,9 @@ const STEPS = [
   { n: "04", title: "Hari-H & Pembongkaran", desc: "Tim kami siaga selama acara berlangsung dan membongkar tenda setelah acara selesai." },
 ];
 
-export default function CaraPemesananPage() {
+export default async function CaraPemesananPage() {
+  const settings = await getSiteSettings();
+  const wa = waNumber(settings);
   return (
     <>
       <SiteHeader />
@@ -32,7 +35,7 @@ export default function CaraPemesananPage() {
         ))}
         <div className="mt-10 text-center">
           <a
-            href="https://wa.me/6280000000000"
+            href={`https://wa.me/${wa}`}
             target="_blank"
             className="inline-block bg-[#25D366] text-white text-sm font-medium px-8 py-3.5 hover:opacity-90 transition"
           >

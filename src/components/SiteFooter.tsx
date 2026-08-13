@@ -1,17 +1,30 @@
 import Link from "next/link";
-import { getSiteSettings } from "@/sanity/lib/getSiteSettings";
+import { getSiteSettings, waNumber } from "@/sanity/lib/getSiteSettings";
+import { urlForImage } from "@/sanity/lib/image";
 
 export default async function SiteFooter() {
   const settings = await getSiteSettings();
   const siteName = settings.siteName || "Tenda Trikora";
+  const wa = waNumber(settings);
+  const email = settings.email || "halo@tendatrikora.id";
+  const address = settings.address || "Jl. Contoh Alamat No. 99, Bogor, Jawa Barat, Indonesia";
 
   return (
     <footer className="bg-onyx text-ivory/60 mt-auto border-t border-champagne/15">
       <div className="max-w-7xl mx-auto px-6 py-14 grid grid-cols-1 md:grid-cols-4 gap-10 text-sm">
         <div>
-          <span className="font-serif text-lg text-ivory">{siteName}</span>
-          <p className="mt-3 text-ivory/50 leading-relaxed">
-            Jl. Contoh Alamat No. 99, Bogor, Jawa Barat, Indonesia
+          <div className="flex items-center gap-2.5 mb-1">
+            {settings.logo && (
+              <img
+                src={urlForImage(settings.logo).height(48).url()}
+                alt={siteName}
+                className="h-6 w-auto object-contain"
+              />
+            )}
+            <span className="font-serif text-lg text-ivory">{siteName}</span>
+          </div>
+          <p className="mt-3 text-ivory/50 leading-relaxed whitespace-pre-line">
+            {address}
           </p>
           <div className="flex gap-3 mt-4">
             <a href="#" aria-label="Instagram" className="w-8 h-8 rounded-full border border-champagne/30 flex items-center justify-center hover:border-champagne hover:text-champagne transition">
@@ -29,8 +42,8 @@ export default async function SiteFooter() {
         <div>
           <span className="text-ivory text-xs uppercase tracking-wider">Kontak</span>
           <div className="mt-3 space-y-2 text-ivory/50">
-            <a href="https://wa.me/6280000000000" target="_blank" className="block hover:text-champagne">WhatsApp: 0800-0000-000</a>
-            <span className="block">Email: halo@tendatrikora.id</span>
+            <a href={`https://wa.me/${wa}`} target="_blank" className="block hover:text-champagne">WhatsApp: {wa}</a>
+            <span className="block">Email: {email}</span>
           </div>
         </div>
 

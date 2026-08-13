@@ -6,7 +6,12 @@ export type SiteSettings = {
   siteName?: string;
   logo?: SanityImage;
   favicon?: SanityImage;
+  whatsappNumber?: string;
+  email?: string;
+  address?: string;
 };
+
+const DEFAULT_WA = "6280000000000";
 
 export async function getSiteSettings(): Promise<SiteSettings> {
   try {
@@ -15,4 +20,14 @@ export async function getSiteSettings(): Promise<SiteSettings> {
   } catch {
     return {};
   }
+}
+
+// Helper supaya tiap tempat yang butuh nomor WA selalu ada fallback konsisten
+export function waNumber(settings: SiteSettings) {
+  return settings.whatsappNumber || DEFAULT_WA;
+}
+
+export function waLink(settings: SiteSettings, message?: string) {
+  const num = waNumber(settings);
+  return message ? `https://wa.me/${num}?text=${encodeURIComponent(message)}` : `https://wa.me/${num}`;
 }

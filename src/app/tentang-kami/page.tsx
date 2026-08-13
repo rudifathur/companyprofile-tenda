@@ -2,8 +2,14 @@ import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import BackToTop from "@/components/BackToTop";
+import { getSiteSettings, waNumber } from "@/sanity/lib/getSiteSettings";
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  const settings = await getSiteSettings();
+  const siteName = settings.siteName || "Tenda Trikora";
+  const wa = waNumber(settings);
+  const address = settings.address || "Jl. Contoh Alamat No. 99, Bogor, Jawa Barat";
+
   return (
     <>
       <SiteHeader />
@@ -11,9 +17,9 @@ export default function AboutPage() {
         <span className="text-[11px] uppercase tracking-[0.2em] text-green">
           Tentang Kami
         </span>
-        <h1 className="font-serif text-3xl mt-2 mb-6">Tenda Trikora</h1>
+        <h1 className="font-serif text-3xl mt-2 mb-6">{siteName}</h1>
         <p className="text-ink-soft leading-relaxed mb-4">
-          Tenda Trikora adalah produsen dan penyedia jasa sewa tenda untuk
+          {siteName} adalah produsen dan penyedia jasa sewa tenda untuk
           berbagai kebutuhan — mulai dari pernikahan dan kondangan, event
           organizer, konser, hingga kebutuhan tenda darurat dan kemanusiaan.
         </p>
@@ -23,12 +29,11 @@ export default function AboutPage() {
           hingga skala besar, siap dikirim ke seluruh Indonesia.
         </p>
         <div className="mt-10 pt-8 border-t border-page-2 text-sm">
-          <p className="mb-1">
-            <span className="font-medium">Alamat:</span> Jl. Contoh Alamat No.
-            99, Bogor, Jawa Barat
+          <p className="mb-1 whitespace-pre-line">
+            <span className="font-medium">Alamat:</span> {address}
           </p>
           <p>
-            <span className="font-medium">WhatsApp:</span> 0800-0000-000
+            <span className="font-medium">WhatsApp:</span> {wa}
           </p>
         </div>
       </main>

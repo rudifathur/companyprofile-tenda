@@ -80,6 +80,6 @@ export const BLOG_POST_QUERY = groq`
 
 export const SITE_SETTINGS_QUERY = groq`
   *[_type == "siteSettings"][0] {
-    siteName, logo, favicon
+    siteName, logo, favicon, whatsappNumber, email, address
   }
 `;

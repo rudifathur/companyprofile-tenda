@@ -15,7 +15,7 @@ const NAV_LINKS = [
   { href: "/kontak", label: "Kontak" },
 ];
 
-export default function MobileMenu({ categories }: { categories: Category[] }) {
+export default function MobileMenu({ categories, whatsappNumber }: { categories: Category[]; whatsappNumber: string }) {
   const [open, setOpen] = useState(false);
   const [categoriesOpen, setCategoriesOpen] = useState(false);
 
@@ -85,7 +85,7 @@ export default function MobileMenu({ categories }: { categories: Category[] }) {
 
             <div className="px-5 py-4">
               <a
-                href="https://wa.me/6280000000000"
+                href={`https://wa.me/${whatsappNumber}`}
                 target="_blank"
                 className="block text-center bg-champagne text-onyx text-xs font-medium px-5 py-3 hover:bg-champagne-light transition"
               >

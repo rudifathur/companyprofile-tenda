@@ -2,8 +2,14 @@ import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import BackToTop from "@/components/BackToTop";
+import { getSiteSettings, waNumber } from "@/sanity/lib/getSiteSettings";
 
-export default function KontakPage() {
+export default async function KontakPage() {
+  const settings = await getSiteSettings();
+  const wa = waNumber(settings);
+  const email = settings.email || "halo@tendatrikora.id";
+  const address = settings.address || "Jl. Contoh Alamat No. 99, Bogor, Jawa Barat, Indonesia";
+
   return (
     <>
       <SiteHeader />
@@ -19,15 +25,15 @@ export default function KontakPage() {
           <div className="space-y-4 text-sm text-ink-soft">
             <div>
               <span className="block text-[#211E1A] font-medium mb-0.5">Alamat</span>
-              Jl. Contoh Alamat No. 99, Bogor, Jawa Barat, Indonesia
+              <span className="whitespace-pre-line">{address}</span>
             </div>
             <div>
               <span className="block text-[#211E1A] font-medium mb-0.5">WhatsApp</span>
-              0800-0000-000
+              {wa}
             </div>
             <div>
               <span className="block text-[#211E1A] font-medium mb-0.5">Email</span>
-              halo@tendatrikora.id
+              {email}
             </div>
             <div>
               <span className="block text-[#211E1A] font-medium mb-0.5">Jam Operasional</span>
@@ -40,7 +46,7 @@ export default function KontakPage() {
             Cara tercepat menghubungi kami adalah lewat WhatsApp — tim akan merespons dalam 1x24 jam.
           </p>
           <a
-            href="https://wa.me/6280000000000"
+            href={`https://wa.me/${wa}`}
             target="_blank"
             className="inline-block bg-[#25D366] text-white text-sm font-medium px-8 py-3.5 hover:opacity-90 transition"
           >

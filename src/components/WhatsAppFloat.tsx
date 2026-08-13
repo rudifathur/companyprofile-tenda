@@ -1,10 +1,14 @@
 import Link from "next/link";
+import { getSiteSettings, waNumber } from "@/sanity/lib/getSiteSettings";
 
-export default function WhatsAppFloat() {
+export default async function WhatsAppFloat() {
+  const settings = await getSiteSettings();
+  const wa = waNumber(settings);
+
   return (
     <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-3 items-center">
       <a
-        href="tel:+6280000000000"
+        href={`tel:+${wa}`}
         aria-label="Telepon kami"
         className="w-12 h-12 rounded-full bg-onyx border border-champagne/50 flex items-center justify-center shadow-lg hover:scale-105 transition"
       >
@@ -17,7 +21,7 @@ export default function WhatsAppFloat() {
         </svg>
       </a>
       <Link
-        href="https://wa.me/6280000000000"
+        href={`https://wa.me/${wa}`}
         target="_blank"
         aria-label="Chat via WhatsApp"
         className="w-14 h-14 rounded-full bg-[#25D366] flex items-center justify-center shadow-lg hover:scale-105 transition"

@@ -2,7 +2,7 @@ import Link from "next/link";
 import { client } from "@/sanity/lib/client";
 import { urlForImage } from "@/sanity/lib/image";
 import { ALL_CATEGORIES_QUERY } from "@/sanity/lib/queries";
-import { getSiteSettings } from "@/sanity/lib/getSiteSettings";
+import { getSiteSettings, waNumber } from "@/sanity/lib/getSiteSettings";
 import MobileMenu from "./MobileMenu";
 
 type Category = { _id: string; title: string; slug: string };
@@ -16,6 +16,7 @@ export default async function SiteHeader() {
   }
   const settings = await getSiteSettings();
   const siteName = settings.siteName || "Tenda Trikora";
+  const wa = waNumber(settings);
 
   return (
     <header className="sticky top-0 z-40 bg-onyx border-b border-champagne/20">
@@ -74,13 +75,13 @@ export default async function SiteHeader() {
 
         <div className="flex items-center gap-3">
           <a
-            href="https://wa.me/6280000000000"
+            href={`https://wa.me/${wa}`}
             target="_blank"
             className="hidden md:inline-block bg-champagne text-onyx text-xs font-medium px-5 py-2.5 hover:bg-champagne-light transition"
           >
             Hubungi Kami
           </a>
-          <MobileMenu categories={categories} />
+          <MobileMenu categories={categories} whatsappNumber={wa} />
         </div>
       </div>
     </header>
