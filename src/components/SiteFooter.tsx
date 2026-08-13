@@ -1,11 +1,15 @@
 import Link from "next/link";
+import { getSiteSettings } from "@/sanity/lib/getSiteSettings";
 
-export default function SiteFooter() {
+export default async function SiteFooter() {
+  const settings = await getSiteSettings();
+  const siteName = settings.siteName || "Tenda Trikora";
+
   return (
     <footer className="bg-onyx text-ivory/60 mt-auto border-t border-champagne/15">
       <div className="max-w-7xl mx-auto px-6 py-14 grid grid-cols-1 md:grid-cols-4 gap-10 text-sm">
         <div>
-          <span className="font-serif text-lg text-ivory">Tenda Trikora</span>
+          <span className="font-serif text-lg text-ivory">{siteName}</span>
           <p className="mt-3 text-ivory/50 leading-relaxed">
             Jl. Contoh Alamat No. 99, Bogor, Jawa Barat, Indonesia
           </p>
@@ -51,7 +55,7 @@ export default function SiteFooter() {
         </div>
       </div>
       <div className="border-t border-champagne/10 px-6 py-4 text-[11px] text-ivory/35 text-center">
-        © 2026 Tenda Trikora. Seluruh hak cipta dilindungi.
+        © 2026 {siteName}. Seluruh hak cipta dilindungi.
       </div>
     </footer>
   );

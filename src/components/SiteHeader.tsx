@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { client } from "@/sanity/lib/client";
+import { urlForImage } from "@/sanity/lib/image";
 import { ALL_CATEGORIES_QUERY } from "@/sanity/lib/queries";
+import { getSiteSettings } from "@/sanity/lib/getSiteSettings";
 import MobileMenu from "./MobileMenu";
 
 type Category = { _id: string; title: string; slug: string };
@@ -12,16 +14,26 @@ export default async function SiteHeader() {
   } catch {
     categories = [];
   }
+  const settings = await getSiteSettings();
+  const siteName = settings.siteName || "Tenda Trikora";
 
   return (
     <header className="sticky top-0 z-40 bg-onyx border-b border-champagne/20">
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-3.5">
         <Link href="/" className="flex items-center gap-2.5">
-          <div className="w-8 h-8 rounded-full border border-champagne flex items-center justify-center text-champagne font-serif text-sm">
-            T
-          </div>
+          {settings.logo ? (
+            <img
+              src={urlForImage(settings.logo).height(64).url()}
+              alt={siteName}
+              className="h-8 w-auto object-contain"
+            />
+          ) : (
+            <div className="w-8 h-8 rounded-full border border-champagne flex items-center justify-center text-champagne font-serif text-sm">
+              {siteName.charAt(0)}
+            </div>
+          )}
           <span className="font-serif text-lg text-ivory tracking-wide">
-            Tenda Trikora
+            {siteName}
           </span>
         </Link>
 

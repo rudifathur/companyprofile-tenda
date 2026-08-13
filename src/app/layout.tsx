@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Anton, Albert_Sans } from "next/font/google";
+import { getSiteSettings } from "@/sanity/lib/getSiteSettings";
 import "./globals.css";
 
 const anton = Anton({
@@ -14,11 +15,15 @@ const albertSans = Albert_Sans({
   weight: ["400", "500", "600", "700"],
 });
 
-export const metadata: Metadata = {
-  title: "Tenda Trikora — Produsen Tenda Terlengkap",
-  description:
-    "Sewa dan produksi tenda untuk pernikahan, kondangan, hingga event & konser berskala besar.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const settings = await getSiteSettings();
+  const siteName = settings.siteName || "Tenda Trikora";
+  return {
+    title: `${siteName} — Produsen Tenda Terlengkap`,
+    description:
+      "Sewa dan produksi tenda untuk pernikahan, kondangan, hingga event & konser berskala besar.",
+  };
+}
 
 export default function RootLayout({
   children,
