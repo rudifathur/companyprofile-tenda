@@ -14,9 +14,15 @@ const structure = (S: any) =>
         .child(
           S.document().schemaType("siteSettings").documentId("siteSettings")
         ),
+      S.listItem()
+        .title("Halaman Tentang Kami")
+        .id("aboutPage")
+        .child(
+          S.document().schemaType("aboutPage").documentId("aboutPage")
+        ),
       S.divider(),
       ...S.documentTypeListItems().filter(
-        (item: any) => item.getId() !== "siteSettings"
+        (item: any) => !["siteSettings", "aboutPage"].includes(item.getId())
       ),
     ]);
 

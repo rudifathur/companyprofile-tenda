@@ -14,6 +14,7 @@ import {
   LATEST_PRODUCTS_QUERY,
   BANNERS_QUERY,
 } from "@/sanity/lib/queries";
+import { getSiteSettings } from "@/sanity/lib/getSiteSettings";
 import type { Image as SanityImage } from "sanity";
 
 type Product = {
@@ -61,8 +62,17 @@ async function getData() {
 
 export default async function Home() {
   const { featured, categoriesWithProducts, latest, banners } = await getData();
+  const settings = await getSiteSettings();
   const hasAnyContent =
     featured.length > 0 || categoriesWithProducts.length > 0 || latest.length > 0;
+
+  const heroEyebrow = settings.heroEyebrow || "Produsen tenda terlengkap";
+  const heroTitle =
+    settings.heroTitle ||
+    "Menaungi setiap momen, dari kondangan hingga panggung besar";
+  const heroSubtitle =
+    settings.heroSubtitle ||
+    "Produksi & sewa tenda untuk pernikahan, event, hingga kebutuhan kemanusiaan — siap kirim ke seluruh Indonesia.";
 
   return (
     <>
@@ -73,14 +83,13 @@ export default async function Home() {
       {/* HERO — ringkas, bukan full-page seperti versi company profile */}
       <section className="bg-onyx text-ivory text-center px-6 py-16 md:py-20">
         <span className="text-[11px] uppercase tracking-[0.28em] text-champagne">
-          Produsen tenda terlengkap
+          {heroEyebrow}
         </span>
         <h1 className="font-serif text-3xl md:text-4xl font-light mt-4 mb-3 max-w-2xl mx-auto leading-tight">
-          Menaungi setiap momen, dari kondangan hingga panggung besar
+          {heroTitle}
         </h1>
-        <p className="text-ivory/60 max-w-md mx-auto text-sm">
-          Produksi &amp; sewa tenda untuk pernikahan, event, hingga kebutuhan
-          kemanusiaan — siap kirim ke seluruh Indonesia.
+        <p className="text-ivory/60 max-w-md mx-auto text-sm whitespace-pre-line">
+          {heroSubtitle}
         </p>
       </section>
 

@@ -6,7 +6,8 @@ import { portfolio } from "./portfolio";
 import { promo } from "./promo";
 import { blogPost } from "./blogPost";
 import { siteSettings } from "./siteSettings";
+import { aboutPage } from "./aboutPage";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [siteSettings, banner, category, product, portfolio, promo, blogPost],
+  types: [siteSettings, aboutPage, banner, category, product, portfolio, promo, blogPost],
 };

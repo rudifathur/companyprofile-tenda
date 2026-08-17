@@ -12,6 +12,9 @@ export type SiteSettings = {
   instagramUrl?: string;
   tiktokUrl?: string;
   facebookUrl?: string;
+  heroEyebrow?: string;
+  heroTitle?: string;
+  heroSubtitle?: string;
 };
 
 const DEFAULT_WA = "6280000000000";

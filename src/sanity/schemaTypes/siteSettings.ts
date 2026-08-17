@@ -12,6 +12,25 @@ export const siteSettings = defineType({
       initialValue: "Tenda Trikora",
     }),
     defineField({
+      name: "heroEyebrow",
+      title: "Teks Kecil di Atas Judul Hero",
+      type: "string",
+      description: "Contoh: Produsen Tenda Terlengkap",
+    }),
+    defineField({
+      name: "heroTitle",
+      title: "Judul Besar Hero",
+      type: "string",
+      description: "Judul utama di halaman depan",
+    }),
+    defineField({
+      name: "heroSubtitle",
+      title: "Sub-judul Hero",
+      type: "text",
+      rows: 2,
+      description: "Kalimat pendek di bawah judul besar",
+    }),
+    defineField({
       name: "logo",
       title: "Logo (untuk header & footer)",
       type: "image",

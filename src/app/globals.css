@@ -1,19 +1,19 @@
 @import "tailwindcss";
 
 :root {
-  --background: #FAF7F1;
+  --background: #FAFAF8;
   --foreground: #211E1A;
 
-  /* Palet Tenda Trikora */
-  --onyx: #121110;
-  --onyx-2: #1B1917;
-  --champagne: #C9A567;
-  --champagne-light: #E4CFA0;
-  --ivory: #F3EEE4;
-  --page: #FAF7F1;
-  --page-2: #F1ECE0;
-  --green: #22362B;
-  --green-light: #2E4A3A;
+  /* Palet Tenda Trikora — hijau forest medium & flat */
+  --onyx: #3D6B4F;
+  --onyx-2: #335A41;
+  --champagne: #FFFFFF;
+  --champagne-light: #F4F4F2;
+  --ivory: #FFFFFF;
+  --page: #FAFAF8;
+  --page-2: #F0F1EC;
+  --green: #2F5940;
+  --green-light: #3D6B4F;
   --ink-soft: #5C574C;
 }
 
