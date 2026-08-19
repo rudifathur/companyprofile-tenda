@@ -59,8 +59,8 @@ export default async function SiteFooter() {
             <Link href="/" className="block hover:text-champagne">Beranda</Link>
             <Link href="/kategori" className="block hover:text-champagne">Semua Kategori</Link>
             <Link href="/galeri" className="block hover:text-champagne">Galeri</Link>
-            <Link href="/promo" className="block hover:text-champagne">Promo</Link>
-            <Link href="/blog" className="block hover:text-champagne">Blog</Link>
+            {/* <Link href="/promo" className="block hover:text-champagne">Promo</Link> */}
+            {/* <Link href="/blog" className="block hover:text-champagne">Blog</Link> */}
           </div>
         </div>
 

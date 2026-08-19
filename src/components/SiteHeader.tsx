@@ -67,8 +67,8 @@ export default async function SiteHeader() {
 
           <Link href="/galeri" className="hover:text-champagne">Galeri</Link>
           <Link href="/cara-pemesanan" className="hover:text-champagne">Cara Pemesanan</Link>
-          <Link href="/promo" className="hover:text-champagne">Promo</Link>
-          <Link href="/blog" className="hover:text-champagne">Blog</Link>
+          {/* <Link href="/promo" className="hover:text-champagne">Promo</Link> */}
+          {/* <Link href="/blog" className="hover:text-champagne">Blog</Link> */}
           <Link href="/tentang-kami" className="hover:text-champagne">Tentang Kami</Link>
           <Link href="/kontak" className="hover:text-champagne">Kontak</Link>
         </div>

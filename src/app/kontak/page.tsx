@@ -7,8 +7,8 @@ import { getSiteSettings, waNumber } from "@/sanity/lib/getSiteSettings";
 export default async function KontakPage() {
   const settings = await getSiteSettings();
   const wa = waNumber(settings);
-  const email = settings.email || "halo@tendatrikora.id";
-  const address = settings.address || "Jl. Contoh Alamat No. 99, Bogor, Jawa Barat, Indonesia";
+  const email = settings.email || "tendatrikora.cs@gmail.com";
+  const address = settings.address || "Jl. Sasak Dempul KP. Burangkeng RT.001 RW.006 Burangkeng Kec. Setu";
 
   return (
     <>
