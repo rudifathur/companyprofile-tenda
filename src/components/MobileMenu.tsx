@@ -9,8 +9,8 @@ const NAV_LINKS = [
   { href: "/", label: "Beranda" },
   { href: "/galeri", label: "Galeri" },
   { href: "/cara-pemesanan", label: "Cara Pemesanan" },
-  { href: "/promo", label: "Promo" },
-  { href: "/blog", label: "Blog" },
+  // { href: "/promo", label: "Promo" },       // disembunyikan sementara
+  // { href: "/blog", label: "Blog" },         // disembunyikan sementara
   { href: "/tentang-kami", label: "Tentang Kami" },
   { href: "/kontak", label: "Kontak" },
 ];
@@ -44,7 +44,7 @@ export default function MobileMenu({ categories, whatsappNumber }: { categories:
               </button>
             </div>
 
-            <nav className="flex flex-col py-2">
+            {/* <nav className="flex flex-col py-2">
               {NAV_LINKS.map((link) => (
                 <Link
                   key={link.href}
@@ -81,6 +81,55 @@ export default function MobileMenu({ categories, whatsappNumber }: { categories:
                   )}
                 </div>
               )}
+            </nav> */}
+            <nav className="flex flex-col py-2">
+              {/* Beranda — dipisah dari .map() */}
+              <Link
+                href="/"
+                onClick={() => setOpen(false)}
+                className="px-5 py-3 text-[14px] text-ivory/80 hover:text-champagne border-b border-champagne/8"
+              >
+                Beranda
+              </Link>
+
+              {/* Blok ini dipindah ke sini, isinya sama persis seperti sebelumnya */}
+              <button
+                onClick={() => setCategoriesOpen((v) => !v)}
+                className="flex items-center justify-between px-5 py-3 text-[14px] text-ivory/80 hover:text-champagne border-b border-champagne/8"
+              >
+                Semua Produk
+                <span>{categoriesOpen ? "−" : "+"}</span>
+              </button>
+              {categoriesOpen && (
+                <div className="bg-onyx-2">
+                  {categories.length === 0 ? (
+                    <div className="px-7 py-2.5 text-xs text-ivory/40">Belum ada Produk</div>
+                  ) : (
+                    categories.map((c) => (
+                      <Link
+                        key={c._id}
+                        href={`/kategori/${c.slug}`}
+                        onClick={() => setOpen(false)}
+                        className="block px-7 py-2.5 text-[13px] text-ivory/70 hover:text-champagne border-b border-champagne/5"
+                      >
+                        {c.title}
+                      </Link>
+                    ))
+                  )}
+                </div>
+              )}
+
+              {/* Sisa link, dimulai dari index 1 (skip Beranda) */}
+              {NAV_LINKS.slice(1).map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setOpen(false)}
+                  className="px-5 py-3 text-[14px] text-ivory/80 hover:text-champagne border-b border-champagne/8"
+                >
+                  {link.label}
+                </Link>
+              ))}
             </nav>
 
             <div className="px-5 py-4">

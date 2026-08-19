@@ -43,14 +43,14 @@ export default async function SiteHeader() {
 
           <div className="relative group">
             <button className="flex items-center gap-1 hover:text-champagne py-3">
-              Semua Kategori
+              Semua Produk
               <svg width="10" height="6" viewBox="0 0 10 6" fill="none">
                 <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.4" />
               </svg>
             </button>
             <div className="absolute left-0 top-full hidden group-hover:block bg-onyx-2 border border-champagne/15 shadow-xl w-64 max-h-96 overflow-y-auto">
               {categories.length === 0 ? (
-                <div className="px-4 py-3 text-xs text-ivory/40">Belum ada kategori</div>
+                <div className="px-4 py-3 text-xs text-ivory/40">Belum ada Produk</div>
               ) : (
                 categories.map((c) => (
                   <Link
